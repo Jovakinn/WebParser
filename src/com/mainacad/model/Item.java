@@ -14,7 +14,6 @@ public class Item {
     private String name;
     private String url;
     private String imageUrl;
-    private Integer initialPrice;
     private Integer price;
 
 

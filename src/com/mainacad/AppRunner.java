@@ -12,15 +12,7 @@ public class AppRunner {
     private static Logger logger = Logger.getLogger(AppRunner.class.getName());
     public static void main(String[] args) {
 
-        // json
-        // {"name" : "value",
-        // "list" : {"element1" : "value1""
-        // element1" : "value1"
-        // "element1" : "value1"
-        //  }
-        //}
-
-        Item item = WebClient.getItem("https://www.amazon.com/HP-Flagship-Premium-i7-8750H-Keyboard/dp/B07TKXFYCP/ref=sr_1_9?keywords=hp+15+omen&qid=1563466678&s=computers-intl-ship&sr=8-9");
+        Item item = WebClient.getItem("https://prom.ua/p843085994-noutbuk-omen-dc0047ur.html");
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -28,25 +20,6 @@ public class AppRunner {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-        //csv
-        // item ID, name,....,item URL;
-        // 1111, Test item1,.....,http...;
-        // 2222, Test item2,......,http...;
-
-
-        // xml
-        /*
-        <item>
-                <itemId>1111</itemId>
-                <name>test Name</name>
-
-                ...
-
-        </item>
-         */
-
 
     }
 }
