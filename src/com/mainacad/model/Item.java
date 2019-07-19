@@ -14,7 +14,7 @@ public class Item {
     private String name;
     private String url;
     private String imageUrl;
-    private Integer price;
+    private Long price;
 
 
 }
