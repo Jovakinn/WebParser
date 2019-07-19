@@ -55,7 +55,7 @@ public class WebClient {
 
     private static String getItemName(Document document) {
         String itemName = "";
-        Elements element = document.getElementsByAttributeValueContaining("class","x-title");
+        Elements element = document.getElementsByAttributeValueContaining("class","x-product-sticky__prod-name");
         if (element != null){
             itemName = element.text();
         }
