@@ -21,7 +21,7 @@ public class WebClient {
             item.setItemId(getItemId(document));
             item.setName(getItemName(document));
             item.setImageUrl(getItemImgUrl(document));
-            item.setPrice(getItemPrice(document));
+            item.setPrice(Math.toIntExact(getItemPrice(document)));
             item.setUrl(url);
         } catch (IOException e) {
             e.printStackTrace();
@@ -29,14 +29,14 @@ public class WebClient {
         return item;
     }
 
-    private static Integer getItemPrice(Document document) {
-        Integer itemPrice = null;
+    private static Long getItemPrice(Document document) {
+        Long itemPrice = null;
         Elements elements = document.getElementsByAttributeValueContaining("class","x-product-price__value");
 
         if (elements != null){
             String itemPriceAsText = elements.text().replaceAll("\\D", "");
             if (!itemPriceAsText.isEmpty()){
-                itemPrice = valueOf(itemPriceAsText);
+                itemPrice = Long.valueOf(valueOf(itemPriceAsText));
             }
         }
         return itemPrice;
