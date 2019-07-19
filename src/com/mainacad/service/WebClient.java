@@ -43,9 +43,9 @@ public class WebClient {
     private static String getItemImgUrl(Document document) {
         String itemImgUrl = "";
 
-        Elements element = document.getElementsByAttributeValueContaining("class","x-image-holder__img");
-        if (element != null && element.hasAttr("src")){
-            itemImgUrl = element.attr("src");
+        Elements element = document.getElementsByAttributeValueContaining("class","js-product-buy-button x-button x-button_width_full x-button_size_xl x-button_theme_purple");
+        if (element != null && element.hasAttr("data-product-big-picture")){
+            itemImgUrl = element.attr("data-product-big-picture");
             if (!itemImgUrl.startsWith("https:")){
                 itemImgUrl = "https:" + itemImgUrl;
             }
