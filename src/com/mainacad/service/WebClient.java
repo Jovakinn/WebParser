@@ -5,7 +5,6 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
 
 public class WebClient {
@@ -21,6 +20,7 @@ public class WebClient {
             item.setImageUrl(getItemImgUrl(document));
             item.setPrice(getItemPrice(document));
             item.setUrl(url);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,7 +29,8 @@ public class WebClient {
 
     private static Long getItemPrice(Document document) {
         Long itemPrice = null;
-        Elements elements = document.getElementsByAttributeValueContaining("class","x-product-sticky__price");
+        Elements elements = document.getElementsByAttributeValueContaining("class",
+                "x-product-sticky__price");
 
         if (elements != null){
             String itemPriceAsText = elements.text().replaceAll("\\D", "");
@@ -43,9 +44,11 @@ public class WebClient {
     private static String getItemImgUrl(Document document) {
         String itemImgUrl = "";
 
-        Elements element = document.getElementsByAttributeValueContaining("class","js-product-buy-button x-button x-button_width_full x-button_size_xl x-button_theme_purple");
-        if (element != null && element.hasAttr("data-product-big-picture")){
-            itemImgUrl = element.attr("data-product-big-picture");
+        Elements elements = document.getElementsByAttributeValueContaining("class",
+                "js-product-buy-button x-button x-button_width_full x-button_size_xl x-button_theme_purple");
+
+        if (elements != null && elements.hasAttr("data-product-big-picture")){
+            itemImgUrl = elements.attr("data-product-big-picture");
             if (!itemImgUrl.startsWith("https:")){
                 itemImgUrl = "https:" + itemImgUrl;
             }
@@ -55,18 +58,24 @@ public class WebClient {
 
     private static String getItemName(Document document) {
         String itemName = "";
-        Elements element = document.getElementsByAttributeValueContaining("class","x-product-sticky__prod-name");
-        if (element != null){
-            itemName = element.text();
+
+        Elements elements = document.getElementsByAttributeValueContaining("class",
+                "x-product-sticky__prod-name");
+
+        if (elements != null){
+            itemName = elements.text();
         }
         return itemName.trim();
     }
 
     private static String getItemId(Document document) {
         String itemId = "";
-        Elements element = document.getElementsByAttributeValueContaining("class","x-product-info__identity-item");
-        if (element != null ){
-            itemId = element.text();
+
+        Elements elements = document.getElementsByAttributeValueContaining("class",
+                "x-product-info__identity-item");
+
+        if (elements != null ){
+            itemId = elements.text();
         }
         return itemId.trim();
     }

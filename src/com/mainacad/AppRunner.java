@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 public class AppRunner {
 
     private static Logger logger = Logger.getLogger(AppRunner.class.getName());
+
     public static void main(String[] args) {
 
         Item item = WebClient.getItem("https://prom.ua/p843085994-noutbuk-omen-dc0047ur.html");
@@ -20,6 +21,5 @@ public class AppRunner {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
