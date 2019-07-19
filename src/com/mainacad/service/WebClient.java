@@ -29,7 +29,7 @@ public class WebClient {
 
     private static Long getItemPrice(Document document) {
         Long itemPrice = null;
-        Elements elements = document.getElementsByAttributeValueContaining("class","x-product-price__value");
+        Elements elements = document.getElementsByAttributeValueContaining("class","x-product-sticky__price");
 
         if (elements != null){
             String itemPriceAsText = elements.text().replaceAll("\\D", "");
