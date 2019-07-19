@@ -8,8 +8,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-import static java.lang.Integer.valueOf;
-
 public class WebClient {
 
     public static Item getItem(String url){
@@ -45,7 +43,7 @@ public class WebClient {
     private static String getItemImgUrl(Document document) {
         String itemImgUrl = "";
 
-        Elements element = document.getElementsByAttributeValueContaining("class","magnifier__image--2qkjO");
+        Elements element = document.getElementsByAttributeValueContaining("class","x-image-holder__img");
         if (element != null && element.hasAttr("src")){
             itemImgUrl = element.attr("src");
             if (!itemImgUrl.startsWith("https:")){
