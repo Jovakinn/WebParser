@@ -47,6 +47,13 @@ public class Parser extends HTMLEditorKit.ParserCallback implements Runnable {
             threadCount++;
             Elements elements = document.getElementsByAttributeValueContaining("class",
                     "x-gallery-tile__name ek-link ek-link_style_multi-line");
+            WebClient.getItem(String.valueOf(elements));
+            StackTraceElement [] stackTraceElements = Thread.currentThread().getStackTrace();
+
+            for (StackTraceElement element : stackTraceElements) {
+                element.toString();
+            }
+
 
             thread.start();
 

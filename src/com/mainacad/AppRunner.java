@@ -14,7 +14,7 @@ public class AppRunner {
 
     public static void main(String[] args) {
 
-       List parser = Parser.parse(WebClient.getItem("https://prom.ua/FM-transmittery-avtomobilnye"));
+        List parser = Parser.parse(WebClient.getItem("https://prom.ua/FM-transmittery-avtomobilnye"));
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
